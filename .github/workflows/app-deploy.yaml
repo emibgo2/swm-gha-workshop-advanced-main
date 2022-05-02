@@ -21,3 +21,6 @@ jobs:
       shell: bash
       run: |
         echo $FUNCTION_APP_PATH
+    
+    - name: Checkout the repo
+      uses: actions/checkout@v2
