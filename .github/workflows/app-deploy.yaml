@@ -9,7 +9,7 @@ on:
 jobs:
   build_test:
     name: 'Build and Test'  
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Set Environment variables
