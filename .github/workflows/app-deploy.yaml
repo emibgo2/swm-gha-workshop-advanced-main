@@ -68,9 +68,9 @@ jobs:
     - name: Set environment variables
       shell: bash
       run: |
-        echo "RESOURCE_GROUP_NAME=rg-${{ secret.RESOURCE_NAME}}" >> $GITHUB_ENV
+        echo "RESOURCE_GROUP_NAME=rg-${{ secrets.RESOURCE_NAME}}" >> $GITHUB_ENV
         echo "FUNCTION_APP_PATH=${{ github.workspace }}"/published >> $GITHUB_ENV
-        echo "FUNCTION_APP_NAME=fncapp-${{ secret.RESOURCE_NAME}}" >> $GITHUB_ENV
+        echo "FUNCTION_APP_NAME=fncapp-${{ secrets.RESOURCE_NAME}}" >> $GITHUB_ENV
         
     - name: Check environment variables
       shell: bash
