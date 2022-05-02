@@ -24,3 +24,36 @@ jobs:
     
     - name: Checkout the repo
       uses: actions/checkout@v2
+    
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dontnet-version: '6.x'
+    
+    - name: Restore NuGet packages
+      shell: bash
+      run: |
+        dontnet restore.
+      
+    - name: Build Function App
+      shell: bash
+      run: |
+        dotnet build .
+    
+    - name: Test Function App
+      shell: bash
+      run: |
+        dotnet test . -C Release
+
+    - name: Create Function App artifact
+      shell: bash
+      run: |
+        pushd "${{ env.FUNCTION_APP_PATH}}"
+        dotnet publish . -c Release -o published
+        popd
+
+    - name: Upload Function App artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: apiapp
+        path: ${{ env.FUNCTION_APP_PATH }}/published
