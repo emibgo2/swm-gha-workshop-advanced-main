@@ -33,7 +33,7 @@ jobs:
     - name: Restore NuGet packages
       shell: bash
       run: |
-        dontnet restore.
+        dotnet restore.
       
     - name: Build Function App
       shell: bash
