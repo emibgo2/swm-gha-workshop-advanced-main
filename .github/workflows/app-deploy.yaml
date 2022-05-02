@@ -43,7 +43,7 @@ jobs:
     - name: Test Function App
       shell: bash
       run: |
-        dotnet test . -C Release
+        dotnet test . -c Release
 
     - name: Create Function App artifact
       shell: bash
